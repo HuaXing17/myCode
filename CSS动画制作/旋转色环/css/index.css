@@ -1,0 +1,57 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-color: #eaeaf0;
+}
+.loader {
+	display: flex;
+}
+.loader span{
+	width: 250px;
+	height: 250px;
+	border-radius: 50%;
+	background-color: #eaeaf0;
+	/* 如图所示：边缘厚度 */
+	border: 6px solid #eaeaf0;
+	box-shadow: -8px -8px 15px rgba(255, 255, 255, 1),8px 8px 25px rgba(0, 0, 0, 0.15);
+	overflow: hidden;
+	position: relative;
+}
+.loader span::before{
+	content: "";
+	inset: 40px;
+	border-radius: 50%;
+	background-color: #eaeaf0;
+	border: 6px solid #eaeaf0;
+	box-shadow: 
+	-8px -8px 15px rgba(255, 255, 255, 1),
+	8px 8px 25px rgba(0, 0, 0, 0.15),
+	inset 3px 3px 10px rgba(0, 0, 0, 0.1),
+	inset -1px -1px 15px rgba(255, 255, 255, 1);
+	/* 可以再这里插入背景图片 */
+	background: no-repeat url();
+	background-size: contain;
+	position: absolute;
+	z-index: 10;
+}
+.loader span i {
+	inset: 0;
+	background: linear-gradient(#69bbff, #ff6699, #ffee50);
+	border-radius: 50%;
+	filter: blur(10px);
+	position: absolute;
+	animation: animate 2s linear infinite;
+}
+/* 设置旋转动画 */
+@keyframes animate {
+	100%{
+		transform: rotate(360deg);
+	}
+}

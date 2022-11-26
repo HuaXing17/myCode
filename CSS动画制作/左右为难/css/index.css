@@ -1,0 +1,51 @@
+:root{
+	/* css变量 */
+	--left-color:rgb(255, 245, 128);
+	--right-color:rgb(121, 255, 111);
+}
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: #ececec;
+	/* 自行设置鼠标样式 */
+	cursor: none;
+}
+.box{
+	/* 网格布局 */
+	display: grid;
+	place-items: center;
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	overflow: hidden;
+}
+.box .text{
+	width: 80vw;
+	font-size: 7vw;
+	margin: 0 10vw;
+	/* 禁止选中文字 */
+	user-select: none;
+}
+.box .title{
+	font-size: 12vw;
+}
+#left-box{
+	width: 57%;
+	background-color: var(--left-color);
+	z-index: 10;
+}
+#left-box .text{
+	color: #353535;
+}
+#left-box .title{
+	/* 反相 */
+	color: var(--right-color);
+}
+#right-box{
+	background-color: var(--right-color);
+}
+#right-box .title{
+	/* 反相 */
+	color: var(--left-color);
+}

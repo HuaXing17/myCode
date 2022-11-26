@@ -1,0 +1,59 @@
+*{
+	/* 初始化 */
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	/* 居中 */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: auto;
+	height: 100vh;
+	background: #606894;
+}
+ul{
+	/* 垂直排列 */
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	/* 行间距 */
+	gap: 5vmin;
+}
+ul li{
+	position: relative;
+	list-style: none;
+}
+ul li a{
+	position: relative;
+	font-size: 8vmin;
+	text-decoration: none;
+	line-height: 10vmin;
+	/* 字符间距 */
+	letter-spacing: 1vmin;
+	color: transparent;
+	/* 文本禁止选择 */
+	user-select: none;
+	/* 居中描边 */
+	-webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+}
+ul li a::before{
+	/* 动态从元素的属性中获取填色内容 */
+	content: attr(data-text);
+	position: absolute;
+	width: 0;
+	height: 100%;
+	/* css变量，获取填色颜色 */
+	color: var(--clr);
+	/* 避免错位 */
+	overflow: hidden;
+	border-right: 1vmin solid var(--clr);
+	-webkit-text-stroke: 1px var(--clr);
+	transition: 1s;
+}
+ul li a:hover::before{
+	width: 100%;
+	/* 添加滤镜 */
+	filter: drop-shadow(0 0 5vmin var(--clr));
+}

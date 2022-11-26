@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(#ffe6f8, #abafff);
+}
+.box {
+  display: flex;
+  gap: 4vmin;
+}
+  /* 两个眼球 */
+.box .eye {
+  width: 20vmin;
+  height: 20vmin;
+  background-color: #fff;
+  border-radius: 50%;
+  /* 内外阴影 */
+  box-shadow: 0 0 4vmin rgba(0, 0, 0, 0.2), inset 0 0 2vmin #c4c0fd,
+	inset 0 0 4vmin #f3def9;
+  position: relative;
+}
+  /* 中间眼珠*/
+.box .eye::before {
+  content: "";
+  width: 40%;
+  height: 40%;
+  background-color: #333;
+  border-radius: 50%;
+  /* 眼珠外圈 */
+  border: 1vmin solid #bab8fe;
+  /* 伪元素没有初始化上 */
+  box-sizing: border-box;
+  /* 位置偏移，不占中间 */
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+}

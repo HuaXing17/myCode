@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>填色文字</title>
+		<link rel="stylesheet" href="css/index.css">
+	</head>
+	<body>
+		<ul>
+			<li style="--clr: #00ade1">
+				<a href="#" data-text="&nbsp;唐三藏">&nbsp;唐三藏&nbsp;</a>
+			</li>
+			<li style="--clr: #2d2d2d">
+				<a href="#" data-text="&nbsp;孙悟空">&nbsp;孙悟空&nbsp;</a>
+			</li>
+			<li style="--clr: #ff6493">
+				<a href="#" data-text="&nbsp;猪悟能">&nbsp;猪悟能&nbsp;</a>
+			</li>
+			<li style="--clr: #ffdd1c">
+				<a href="#" data-text="&nbsp;沙悟净">&nbsp;沙悟净&nbsp;</a>
+			</li>
+			<li style="--clr: #00dc82">
+				<a href="#" data-text="&nbsp;白龙马">&nbsp;白龙马&nbsp;</a>
+			</li>
+		</ul>
+		<script>
+			//清除默认行为	不兼容火狐 ╯︿╰
+			window.onload = () => {
+				document.onmousemove=function(){
+					return false;
+				}
+			}
+		</script>
+	</body>
+</html>

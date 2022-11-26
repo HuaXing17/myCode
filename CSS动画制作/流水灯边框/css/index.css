@@ -1,0 +1,57 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	overflow: hidden;
+	background-color: #000;
+}
+.box {
+	overflow: hidden;
+	padding: 15vmin 10vmin;
+	border-radius: 5vmin;
+	font-size: 8vmin;
+	/* 字体颜色可自选 */
+	color: #66ddf7;
+	user-select: none;
+	position: relative;
+	transition: 0.5s;
+	z-index: 0;
+}
+.box::before {
+	content: "";
+	width: 200%;
+	height: 200%;
+	background-color: #22292f;
+	/* 围绕中心点旋转的渐变 */
+	background-image: conic-gradient(transparent, #66ddf7, transparent 30%);
+	position: absolute;
+	/* 令中心点居中 */
+	top: -50%;
+	left: -50%;
+	/* 为了让文本内容显示，取负值,置于最底层 */
+	z-index: -2;
+	animation:  rotate 3s linear infinite;
+}
+@keyframes rotate {
+	100%{
+		transform: rotate(360deg);
+	}
+}
+.box::after {
+	content: "";
+	inset: 1vmin;
+	background-color: #000;
+	border-radius: 4vmin;
+	position: absolute;
+	z-index: -1;
+}
+/* 动画暂停 */
+/* .box:hover::before {
+	animation-play-state: paused;
+} */
