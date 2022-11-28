@@ -1,0 +1,98 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    min-height: 100vh;
+    background-color: #101010;
+}
+#box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vmin;
+    height: 50vmin;
+    border-radius: 50%;
+    position: relative;
+    animation:  animate 5s linear infinite;
+}
+#box:hover {
+    animation-play-state: paused;
+}
+@keyframes animate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/* 注释代码采用的颜色顺序： 红 - 橙 - 黄 - 绿 - 蓝 - 紫 */
+#box::before,
+#box::after {
+    content: "";
+    width: 70%;
+    height: 70%;
+    border: 3vmin solid transparent;
+    border-radius: 50%;
+    box-shadow: 0 2vmin 1vmin #000, inset 0 0 1vmin #000;
+    border-left-color: #fff;
+    border-bottom-color: #fff;
+    transform: rotate(-45deg);
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    /* 启用以下代码有助于理解 */
+    /* border-left-color: #f00;
+    border-bottom-color: #f00; */
+}
+/* 在最顶层，大小与中圈相同 */
+#box::after {
+    width: 85%;
+    height: 85%;
+    z-index: 0;
+    /* 启用以下代码有助于理解 */
+    /* border-left-color: orange;
+    border-bottom-color: orange; */
+}
+/* 小圈：最底层 */
+#box .circle {
+    --inner: 70%;
+    width: var(--inner);
+    height: var(--inner);
+    border: 3vmin solid #fff;
+    border-radius: 50%;
+    box-shadow: 1vmin 1vmin 1vmin #000, inset 1vmin 1vmin 1vmin #000;
+    position: absolute;
+    left: 0;
+    /* 启用以下代码有助于理解 */
+    /* border: 3vmin solid purple; */
+}
+/* 中圈：第二层（在视图下面） */
+#box .circle:nth-child(2) {
+    --inner: 85%;    
+    /* 启用以下代码有助于理解：由于这一层色彩会被其它颜色所阻挡，为了能被看到故增加了边框的宽度 */
+    /* border: 5vmin solid blue; */
+}
+/* 外圆：第三层 */
+#box .circle:nth-child(3) {
+    --inner: 100%;
+    /* 启用以下代码有助于理解 */
+    /* border: 3vmin solid green; */
+}
+/* 中圈：最上层 */
+#box .circle:nth-child(4) {
+    --inner: 85%;
+    box-shadow: none;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    transform: rotate(45deg);
+    /* 启用以下代码有助于理解 */
+    /* border-top-color: yellow;
+    border-left-color: yellow; */
+}
