@@ -1,5 +1,5 @@
 window.yx={
-	g:function(name){ 
+	g:function(name){
 		return document.querySelector(name);
 	},
 	ga:function(name){
@@ -19,16 +19,15 @@ window.yx={
 			obj.detachEvent('on'+ev,fn);
 		}
 	},
-	getTopValue:function(obj){		//获取元素离html的距离
+	getTopValue:function(obj){
 		var top=0;
 		while(obj.offsetParent){
 			top+=obj.offsetTop;
 			obj=obj.offsetParent;
 		}
-		
 		return top;
 	},
-	cutTime:function(target){	//倒计时
+	cutTime:function(target){
 		var currentDate=new Date();
 		var v=Math.abs(target-currentDate);
 		
@@ -39,10 +38,11 @@ window.yx={
 			s:parseInt(v%(24*3600000)%3600000%60000/1000)
 		};
 	},
+	
 	format:function(v){		//给时间补0
 		return v<10?'0'+v:v;
 	},
-	formatDate:function(time){
+	formatData:function(){
 		var d=new Date(time);
 		return d.getFullYear()+'-'+yx.format(d.getMonth()+1)+'-'+yx.format(d.getDate())+' '+yx.format(d.getHours())+':'+yx.format(d.getMinutes());
 	},
@@ -152,8 +152,8 @@ window.yx={
 				ul.innerHTML=li;
 				
 				productNum=ul.children.length;			//买了几个商品
-				yx.g('.cartWrap i').innerHTML=productNum;	//更新商品数量的值
-				yx.g('.cartWrap .total span').innerHTML='¥'+totalPrice+'.00';	//更新总价格
+				yx.g('.cratWarp i').innerHTML=productNum;	//更新商品数量的值
+				yx.g('.cratWarp .total span').innerHTML='¥'+totalPrice+'.00';	//更新总价格
 				
 				//删除商品功能
 				var colseBtns=yx.ga('.cart .list .close');
@@ -170,15 +170,15 @@ window.yx={
 				}
 				
 				//给小红圈添加事件
-				var cartWrap=yx.g('.cartWrap');
+				var cratWarp=yx.g('.cratWarp');
 				var timer;		//为了解决购物车与弹出层之间的间隙会触发leave事件的问题
 				
-				cartWrap.onmouseenter=function(){
+				cratWarp.onmouseenter=function(){
 					clearTimeout(timer);
 					yx.g('.cart').style.display='block';
 					scrollFn();
 				};
-				cartWrap.onmouseleave=function(){
+				cratWarp.onmouseleave=function(){
 					timer=setTimeout(function(){
 						yx.g('.cart').style.display='none';	
 					},100);
@@ -352,4 +352,6 @@ window.yx={
 			};
 		}
 	}
+	
+	
 }

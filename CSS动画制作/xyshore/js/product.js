@@ -9,10 +9,10 @@ console.log(productList);
 var params=yx.parseUrl(window.location.href);
 var pageId=params.id;				//产品对应的id
 var curData=productList[pageId];		//产品对应的数据
-if(!pageId || !curData){
+/* if(!pageId || !curData){
 	//这个就是404页面出现在条件
 	window.location.href='404.html';
-}
+} */
 
 //面包屑的功能
 var positionFn=yx.g('#position');

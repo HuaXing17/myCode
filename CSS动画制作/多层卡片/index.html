@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>多层卡片</title>
+		<style>
+			.levels{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -140px;
+				margin-top: -180px;
+				transform-style: preserve-3d;
+				user-select: none;
+			}
+			.level{
+				position: relative;
+				width: 280px;
+				height: 140px;
+				border-radius: 12px;
+				color: pink;
+				cursor: pointer;
+				margin-top: -70px;
+				opacity: 0.9;
+				transition: all .4s ease;
+				transform: rotateX(45deg) rotateY(-15deg) rotate(45deg);
+			}
+			.one{
+				background: #8063e1;
+				background-image: linear-gradient(135deg,#bd7be8,#8063e1);
+				box-shadow: 20px 20px 60px rgba(34, 50, 84, 0.5), 1px 1px 0px 1px #8063e1;
+				z-index: 4;
+			}
+			.two{
+				background: #3f58e3;
+				background-image: linear-gradient(135deg,#7f94fc,#3f58e3);
+				box-shadow: 20px 20px 60px rgba(34, 50, 84, 0.5), 1px 1px 0px 1px #3f58e3;
+				z-index: 3;
+			}
+			.three{
+				background: #2c6fd1;
+				background-image: linear-gradient(135deg,#21bbfe,#2c6fd1);
+				box-shadow: 20px 20px 60px rgba(34, 50, 84, 0.5), 1px 1px 0px 1px #2c6fd1;
+				z-index: 2;
+			}
+			.four{
+				background: #352f64;
+				background-image: linear-gradient(135deg,#415197,#352f64);
+				box-shadow: 20px 20px 60px rgba(34, 50, 84, 0.5), 1px 1px 0px 1px #352f64;
+				z-index: 1;
+			}
+			.title{
+				position: absolute;
+				top: 28px;
+				left: 15px;
+				font-size: 26px;
+				font-weight: bold;
+			}
+			.content{
+				position: absolute;
+				font-weight: 700;
+				bottom: 15px;
+				left: 15px;
+				font-size: 16px;
+			}
+			.level:hover{
+				transform: rotateX(30deg) rotateY(-15deg) rotate(30deg) translate(-25px, 50px);
+				opacity: 0.5;
+			}
+			.level:hover::after{
+				transform: translateX(100%);
+				transition: all 1.2s ease-in-out;
+			}
+			.level::after{
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				transform: translateX(-100%);
+				/* background-color: red; */
+				background-image: linear-gradient(60deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 80%);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="levels">
+			<div class="level one">
+				<div class="title">One</div>
+				<div class="content">One Content</div>
+			</div>
+			<div class="level two">
+				<div class="title">Two</div>
+				<div class="content">Two Content</div>
+			</div>
+			<div class="level three">
+				<div class="title">Three</div>
+				<div class="content">Three Content</div>
+			</div>
+			<div class="level four">
+				<div class="title">Four</div>
+				<div class="content">Four Content</div>
+			</div>
+		</div>
+	</body>
+</html>
